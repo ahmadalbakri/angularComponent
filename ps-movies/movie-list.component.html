@@ -1,0 +1,21 @@
+<div class="item" ng-repeat="movie in model.movies">
+	<div class="btnContainer">
+		<a href="" ng-click="model.upRating(movie)">Up Vote</a>
+		<a href="" ng-click="model.downRating(movie)">Down Vote</a>
+		<!--
+		<button ng-click="model.upRating(movie)">  Up Rating Voting</button>
+		<button ng-click="model.downRating(movie)">Down Rating Voting</button>
+		-->
+	</div>
+	
+	{{movie.title}}
+	
+	<movie-rating value="movie.rating">
+		<span class="icon-star"></span>
+	</movie-rating>
+	
+	<a ng-link="['Details', {id: movie.id}]">
+		<span>Details</span>
+	</a>
+
+</div>
