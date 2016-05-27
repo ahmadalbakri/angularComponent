@@ -1,1 +1,13 @@
-this is details
+<h3>Details for Movie : {{model.id}}</h3>
+<div class="item" ng-repeat="movie in model.movies">
+{{movie.title}}
+</div>
+
+<!--
+<ul>
+	<li ng:repeat="tweet in model.tweets[0]" id="{{tweet.id_str}}">
+		{{tweet.text}}
+	</li>
+	<button></button>
+</ul>
+-->
