@@ -16,8 +16,10 @@
 	</movie-rating>
 	
 	<!-- Details Link -->
-	<a ng-link="['Details', {id: movie.id}]">
+	<!-- <a ng-link="['Details', {id: movie.id}]">
 		<span>Details</span>
-	</a>
+	</a> -->
+
+	<button ng-click="model.goTo(movie.id)">Details</button>
 
 </div>

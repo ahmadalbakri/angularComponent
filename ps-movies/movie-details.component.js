@@ -3,6 +3,25 @@
 	
 	var module = angular.module("psMovies");
 
+	module.component("movieDetails", {
+		templateUrl : "/angular/ang/ps-movies/movie-details.component.html",
+		/*
+		// execute before $routerOnActivate, get http from server to check can proceed(with auth) or not
+		$canActivate : function($timeout){
+			return $timeout(function(){
+				return true;
+			}, 2000);
+		}
+		*/
+		$routeConfig: [	
+			{ path: "/overview", component: "movieOverview", name: "Overview"},
+			{ path: "/cast", component: "movieCast", name: "Cast"},
+			{ path: "/director", component: "movieDirector", name: "Director"}
+		],
+		controllerAs : "model",
+		controller : ["$http", detailController]
+	});
+
 	function detailController($http){
 		var model = this;
 		model.movies = [];
@@ -13,42 +32,28 @@
 
 		model.$onInit = function(){
 			fetchMovies($http).then(function(movies){
-				model.movies = movies;
+				model.movies = movies[model.id];
+				console.log(model);
 			});
-		};
-		console.log(model.movies);
+		};	
 	};
 
-	/*
-	function controller($http){			
-		var model = this;
-		model.movies = [];
-		
-		fetchMovies($http).then(function(movies){
-			model.movies = movies;
-		});
-	};
-	*/
-	
+	module.component("movieOverview", {
+		template: "movie overview"
+	});
+
+	module.component("movieCast", {
+		template: "movie cast"
+	});
+
+	module.component("movieDirector", {
+		template: "movie director"
+	});
+
 	function fetchMovies($http){
-		return $http.get("/angular/movies.json")
+		return $http.get("/angular/ang/movies.json")
 		.then(function(response){
 			return response.data
 		});
 	};
-	
-	module.component("movieDetails", {
-		templateUrl : "/angular/ps-movies/movie-details.component.html",
-		/*
-		// execute before $routerOnActivate, get http from server to check can proceed(with auth) or not
-		$canActivate : function($timeout){
-			return $timeout(function(){
-				return true;
-			}, 2000);
-		}
-		*/
-		controllerAs : "model",
-		controller : ["$http", detailController]
-	});
-	
 }());
