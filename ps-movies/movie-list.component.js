@@ -20,7 +20,7 @@
 		};
 
 		model.upRating = function(movie){
-			if(movie.rating < 5){
+			if(movie.rating < 10){
 				movie.rating += 1;
 			};
 		};
@@ -33,14 +33,14 @@
 	};
 	
 	function fetchMovies($http){
-		return $http.get("/angular/ang/movies.json")
+		return $http.get("/angular/movies.json")
 		.then(function(response){
 			return response.data
 		});
 	};
 	
 	module.component("timelineCommenting", {
-		templateUrl : "/angular/ang/ps-movies/movie-list.component.html",
+		templateUrl : "/angular/ps-movies/movie-list.component.html",
 		controllerAs : "model",
 		controller: ["$http", controller],
 		bindings: {

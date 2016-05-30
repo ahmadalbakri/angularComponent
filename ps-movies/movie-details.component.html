@@ -1,12 +1,11 @@
 <h3>Details for Movie : {{model.id}}</h3>
-
-<!-- <a ng-link="['Details', {id: movie.id}]"> -->
-
-<div class="item" ng-repeat="movie in model.movies">
-	{{movie.title}}
-</div>
-
 <ul>
+	<li class="item" ng-repeat="movie in model.movies">{{movie.title}}</li>
+</ul>
+
+<hr>
+
+<ul class="detailNavi">
 	<li><a ng-link="['Overview']">Overview</a></li>
 	<li><a ng-link="['Cast']">Cast</a></li>
 	<li><a ng-link="['Director']">Director</a></li>

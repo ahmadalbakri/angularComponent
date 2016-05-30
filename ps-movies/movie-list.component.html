@@ -1,25 +1,24 @@
 <!-- Component : Movie List -->
 <div class="item" ng-repeat="movie in model.movies">
 
-	<!-- Voting Up/Down Link -->
-	<div class="btnContainer">
-		<a href="" ng-click="model.upRating(movie)">Up Vote</a>
-		<a href="" ng-click="model.downRating(movie)">Down Vote</a>
-	</div>
-	
 	<!-- Movie title -->
 	{{movie.title}}
 	
 	<!-- Star Rating -->
-	<movie-rating value="movie.rating">
-		<span class="icon-star"></span>
-	</movie-rating>
+	<movie-rating value="movie.rating" max="10"></movie-rating>
 	
-	<!-- Details Link -->
-	<!-- <a ng-link="['Details', {id: movie.id}]">
-		<span>Details</span>
-	</a> -->
-
-	<button ng-click="model.goTo(movie.id)">Details</button>
-
+	<!-- Voting Up/Down Link -->
+	<div class="btnContainer">
+		<button class="btn btn-default" ng-click="model.upRating(movie)">
+			<span class="glyphicon glyphicon-plus"></span>
+		</button>
+		
+		<button class="btn btn-default" ng-click="model.downRating(movie)">
+			<span class="glyphicon glyphicon-minus"></span>
+		</button>
+		
+		<button class="btn btn-default" ng-click="model.goTo(movie.id)">
+			<span class="glyphicon glyphicon-search"></span>
+		</button>			
+	</div>
 </div>

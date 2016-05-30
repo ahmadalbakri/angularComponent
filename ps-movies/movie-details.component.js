@@ -4,7 +4,7 @@
 	var module = angular.module("psMovies");
 
 	module.component("movieDetails", {
-		templateUrl : "/angular/ang/ps-movies/movie-details.component.html",
+		templateUrl : "/angular/ps-movies/movie-details.component.html",
 		/*
 		// execute before $routerOnActivate, get http from server to check can proceed(with auth) or not
 		$canActivate : function($timeout){
@@ -32,8 +32,8 @@
 
 		model.$onInit = function(){
 			fetchMovies($http).then(function(movies){
-				model.movies = movies[model.id];
-				console.log(model);
+				model.movies = movies;
+				//console.log(model);
 			});
 		};	
 	};
@@ -51,7 +51,7 @@
 	});
 
 	function fetchMovies($http){
-		return $http.get("/angular/ang/movies.json")
+		return $http.get("/angular/movies.json")
 		.then(function(response){
 			return response.data
 		});

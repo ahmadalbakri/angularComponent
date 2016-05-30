@@ -18,9 +18,5 @@
 	module.component("appHome",{
 		template: "this is home page"
 	});
-
-	module.component("appAbout",{
-		template: "this is about page"
-	});	
 	
 }());
