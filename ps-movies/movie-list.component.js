@@ -32,15 +32,8 @@
 		};
 	};
 	
-	function fetchMovies($http){
-		return $http.get("/angular/movies.json")
-		.then(function(response){
-			return response.data
-		});
-	};
-	
 	module.component("timelineCommenting", {
-		templateUrl : "/angular/ps-movies/movie-list.component.html",
+		templateUrl : "/angular/ang/ps-movies/movie-list.component.html",
 		controllerAs : "model",
 		controller: ["$http", controller],
 		bindings: {

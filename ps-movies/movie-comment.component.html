@@ -1,9 +1,18 @@
 this is commenting form
 <hr>
 
-<form ng-submit="submit()" ng-controller="ExampleController">
-	Enter text and hit enter:
-	<input type="text" ng-model="text" name="text" />
-	<input type="submit" id="submit" value="Submit" />
-	<pre>list={{list}}</pre>
+<form ng-submit="submitComment()">
+
+    <div ng-class="{ 'has-error' : errorName }">
+        <input type="text" name="name" placeholder="Insert comment here..." ng-model="model.name">
+        <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+    </div>
+
+    <button type="submit">Submit!</button>
 </form>
+
+<br>
+
+<pre>
+	{{ model }}
+</pre>

@@ -14,7 +14,7 @@
 	};
 	
 	module.component("movieRating", {
-		templateUrl : "/angular/ps-movies/movie-rating.component.html",
+		templateUrl : "/angular/ang/ps-movies/movie-rating.component.html",
 		bindings: {
 			value : "<",
 			max : "<"

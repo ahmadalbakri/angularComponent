@@ -4,7 +4,7 @@
 	var module = angular.module('psMovies');
 	
 	module.component("movieApp", {
-		templateUrl : "/angular/ps-movies/movie-app.component.html",
+		templateUrl : "/angular/ang/ps-movies/movie-app.component.html",
 		$routeConfig: [
 			{ path: "/home", component: "appHome", name: "Home"},
 			{ path: "/list", component: "timelineCommenting", name: "List"},

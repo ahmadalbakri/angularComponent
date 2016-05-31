@@ -4,7 +4,7 @@
 	var module = angular.module("psMovies");
 
 	module.component("movieDetails", {
-		templateUrl : "/angular/ps-movies/movie-details.component.html",
+		templateUrl : "/angular/ang/ps-movies/movie-details.component.html",
 		/*
 		// execute before $routerOnActivate, get http from server to check can proceed(with auth) or not
 		$canActivate : function($timeout){
@@ -49,11 +49,4 @@
 	module.component("movieDirector", {
 		template: "movie director"
 	});
-
-	function fetchMovies($http){
-		return $http.get("/angular/movies.json")
-		.then(function(response){
-			return response.data
-		});
-	};
 }());

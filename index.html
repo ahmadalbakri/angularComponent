@@ -2,12 +2,13 @@
 <html lang="en" ng-app="psMovies">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Example - example-heroComponentSimple-production</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
+	
 	<movie-app></movie-app>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -19,5 +20,13 @@
 	<script src="ps-movies/movie-app.component.js"></script>
 	<script src="ps-movies/movie-details.component.js"></script>
 	<script src="ps-movies/movie-comment.component.js"></script>
+	<script>
+		function fetchMovies($http){
+			return $http.get("/angular/ang/movies.json")
+			.then(function(response){
+				return response.data
+			});
+		};
+	</script>
 </body>
 </html>
