@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Two way Data binding Demo</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+    var app = angular.module('two_way', []);
+
+    app.controller('two_way_control', function($scope, $http, $interval) {
+        load_pictures();
+        $interval(function() {
+            load_pictures();
+        }, 2500);
+
+        function load_pictures() {
+            $http.get('movies.json').success(function(data) {
+                $scope.title = data;
+            });
+        };
+    });
+    </script>
+</head>
+
+<body>
+    <h4>Movie title</h4>
+    <!-- ng-controller -->
+    <div id="container" ng-app='two_way' ng-controller='two_way_control'>
+        <!-- ng-repeat -->
+        <div class="row" ng-repeat="data in title">
+            {{data.title}}
+        </div>
+        <!-- end ng-repeat -->
+    </div>
+    <!-- eng ng-controller -->
+</body>
+
+</html>
